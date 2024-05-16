@@ -8,7 +8,7 @@ resource "aws_instance" "remote" {
     key_name = "anuragkey3"
 
     tags = {
-      Name = "anurag1"
+      Name = "anurag3"
 
    
     }

@@ -6,3 +6,6 @@ module "practice-module" {
  
   
 }
+
+
+#we are take the value in module-day-8

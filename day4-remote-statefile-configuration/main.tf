@@ -10,7 +10,6 @@ resource "aws_instance" "remote" {
     tags = {
       Name = "anurag3"
 
-   
-    }
+   }
   
 }

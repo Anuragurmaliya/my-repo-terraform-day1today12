@@ -6,6 +6,7 @@ resource "aws_instance" "dependency" {
       Name="dependency" 
     } 
   depends_on = [aws_s3_bucket.dependency]
+  
 } 
  
 resource "aws_s3_bucket" "dependency" { 

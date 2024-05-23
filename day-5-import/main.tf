@@ -1,7 +1,7 @@
 resource "aws_instance" "name" {
-    ami = ""
+    ami = "ami-0cc9838aa7ab1dce7"
     instance_type = "t3.micro"
-    key_name = ""
+    key_name = "anuragkey3"
     tags = {
       Name = "sgyss"
     }

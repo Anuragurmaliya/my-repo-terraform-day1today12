@@ -1,6 +1,6 @@
 ### Create IAM policy
-resource "aws_iam_policy" "anurag23_policy" {
-  name        = "test_policy"
+resource "aws_iam_policy" "example_policy" {
+  name        = "example_policy"
   description = "Permissions for EC2"
   policy      = jsonencode({
     Version: "2012-10-17",
@@ -15,8 +15,8 @@ resource "aws_iam_policy" "anurag23_policy" {
 }
 
 ### Create IAM role
-resource "aws_iam_role" "anurag43_role" {
-  name = "anurag_role"
+resource "aws_iam_role" "example_role" {
+  name = "example_role"
 
   assume_role_policy = jsonencode({
     Version = "2012-10-17"
@@ -33,21 +33,22 @@ resource "aws_iam_role" "anurag43_role" {
   })
 }
 ### Attach IAM policy to IAM role
-resource "aws_iam_policy_attachment" "policy_attachment98" {
-  name       = "my_policy_attachment"
-  roles     = aws_iam_role.anurag43_role.managed_policy_arns
-  policy_arn = aws_iam_policy.anurag23_policy.arn
+resource "aws_iam_policy_attachment" "policy_attach" {
+  name       = "example_policy_attachment"
+  roles      = [aws_iam_role.example_role.name]
+  policy_arn = aws_iam_policy.example_policy.arn
 }
 
 ### Create instance profile using role
-resource "aws_iam_instance_profile" "my_ec2_profile" {
-  name = "ec2-instance_profile"
-  role = aws_iam_role.anurag43_role.name
+resource "aws_iam_instance_profile" "example_profile" {
+  name = "example_profile"
+  role = aws_iam_role.example_role.name
 }
 
 ### Create EC2 instance and attache IAM role
 resource "aws_instance" "example_instance" {
-  instance_type        = var.instance_type
-  ami                  = var.ami_id
-  iam_instance_profile = aws_iam_instance_profile.my_ec2_profile.name
+  instance_type        = "t2.micro"
+  ami                  = "ami-00fa32593b478ad6e"
+
+  iam_instance_profile = aws_iam_instance_profile.example_profile.name
 }

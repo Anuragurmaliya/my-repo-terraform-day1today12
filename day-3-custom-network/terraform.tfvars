@@ -1,3 +1,3 @@
-ami_id = "ami-013e83f579886baeb"
+ami_id = "ami-078264b8ba71bc45e"
 instance_type = "t2.micro"
-keyname = "anuragkey3"
+keyname = "job1"

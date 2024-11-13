@@ -1,6 +1,6 @@
-resource "aws_instance" "name" {
-    ami = "ami-0cc9838aa7ab1dce7"
-    instance_type = "t3.micro"
+resource "aws_instance" "name" {  #first run ith resource block then import these details anothe resource block
+    ami = "ami-0cc9838aa7ab1dce7" # we can not create one more resource like s3 bucket
+    instance_type = "t3.micro"    # if s3 we are creating new main.tf and new resource block created
     key_name = "anuragkey3"
     tags = {
       Name = "sgyss"

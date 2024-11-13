@@ -5,7 +5,7 @@ resource "aws_instance" "dependency" {
     tags = { 
       Name="dependency" 
     } 
-  depends_on = [aws_s3_bucket.dependency]
+  depends_on = [aws_s3_bucket.dependency] # it is create first s3 dependency
   
 } 
  
